@@ -6,7 +6,7 @@ graylog:
         GRAYLOG_RETENTION: "${graylog_retention}"
         GRAYLOG_NODE_ID: "${graylog_node_id}"
         GRAYLOG_MASTER: "${graylog_master}"
-    image: "graylog-server:2.0.0-beta.1-1"
+    image: "graylog2/server:2.0.0-rc.1-1"
     labels:
         io.rancher.container.hostname_override: container_name
     external_links:
