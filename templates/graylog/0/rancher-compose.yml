@@ -3,32 +3,52 @@
     version: "v1.3.4"
     description: "Open source log management that actually works."
     questions:
-        - variable: graylog_node_id
-          description: "Set server node ID"
-          label: "Node ID"
+        - variable: graylog_mongodb
+          description: "MongoDB Service"
+          label: "MongoDB Service"
+          type: "service"
+          required: "true"
+        - variable: graylog_es
+          description: "ElasticSearch Service Graylog Cluster"
+          label: "ElasticSearch Service"
+          type: "service"
+          required: "true"
+        - variable: graylog_password
+          description: "Password in sha2"
+          label: "SHA2 Password"
           type: "string"
-          default: "graylog"
-          required: true
-        - variable: graylog_retention
-          description: "Configure how long or how many logs should be stored"
-          label: "Retention"
+          required: "true"
+        - variable: graylog_secret
+          description: "Password secret"
+          label: "Password secret"
           type: "string"
-          default: ""
-        - variable: "graylog_username"
-          description: "Set username for admin user"
-          label: "Username"
-          type: "string"
-          default: "admin"
-          required : true
-        - variable: "graylog_password"
-          description: "Set admin password"
-          label: "Password"
-          type: "string"
-          default: ""
-          required : true
-        - variable: "graylog_secret"
-          description: "SALT secret"
-          label: "Secret"
-          type: "string"
-          default: ""
-          required : true
+          required: "true"
+        # - variable: graylog_node_id
+        #   description: "Set server node ID"
+        #   label: "Node ID"
+        #   type: "string"
+        #   default: "graylog"
+        #   required: true
+        # - variable: graylog_retention
+        #   description: "Configure how long or how many logs should be stored"
+        #   label: "Retention"
+        #   type: "string"
+        #   default: ""
+        # - variable: "graylog_username"
+        #   description: "Set username for admin user"
+        #   label: "Username"
+        #   type: "string"
+        #   default: "admin"
+        #   required : true
+        # - variable: "graylog_password"
+        #   description: "Set admin password"
+        #   label: "Password"
+        #   type: "string"
+        #   default: ""
+        #   required : true
+        # - variable: "graylog_secret"
+        #   description: "SALT secret"
+        #   label: "Secret"
+        #   type: "string"
+        #   default: ""
+        #   required : true
