@@ -2,23 +2,7 @@
     name: "Graylog"
     version: "v1.3.4"
     description: "Open source log management that actually works."
-    uuid: "graylog-0"
     questions:
-        - variable: mongo_service
-          description: "Service MongoDB lié"
-          label: "Service MongoDB"
-          type: "service"
-          required: true
-        - variable: es_service
-          description: "Service ElasticSearch lié"
-          label: "Service ElasticSearch"
-          type: "service"
-          required: true
-        - variable: graylog_master
-          description: "Serveur Graylog maître (dans le cas d'un cluster)"
-          label: "Serveur Graylog maître"
-          type: "string"
-          default: ""
         - variable: graylog_node_id
           description: "Set server node ID"
           label: "Node ID"
@@ -41,3 +25,10 @@
           label: "Password"
           type: "string"
           default: ""
+          required : true
+        - variable: "graylog_secret"
+          description: "SALT secret"
+          label: "Secret"
+          type: "string"
+          default: ""
+          required : true
