@@ -1,0 +1,17 @@
+graylog:
+    restart: always
+    environment:
+        GRAYLOG_USERNAME: "${graylog_username}"
+        GRAYLOG_PASSWORD: "${graylog_password}"
+        GRAYLOG_RETENTION: "${graylog_retention}"
+        GRAYLOG_NODE_ID: "${graylog_node_id}"
+        GRAYLOG_MASTER: "${graylog_master}"
+    image: "graylog-server:2.0.0-beta.1-1"
+    labels:
+        io.rancher.container.hostname_override: container_name
+    external_links:
+        - ${mongo_service}:mongo
+        - ${es_service}:elasticsearch
+    ports:
+        - "9000:9000"
+        - "12900:12900"
