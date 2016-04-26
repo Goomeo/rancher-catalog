@@ -47,7 +47,7 @@ graylog-main:
     environment:
         GRAYLOG_PASSWORD_SECRET: ${graylog_secret}
         GRAYLOG_ROOT_PASSWORD_SHA2: ${graylog_password}
-        GRAYLOG_REST_TRANSPORT_URI: http://${CATTLE_AGENT_IP}:12900
+        GRAYLOG_REST_TRANSPORT_URI: "http://0.0.0.0:12900"
     image: "graylog2/server:2.0.0-rc.1-1"
     labels:
         io.rancher.container.hostname_override: container_name
