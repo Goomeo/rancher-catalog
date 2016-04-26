@@ -7,19 +7,19 @@
           description: "MongoDB Service"
           label: "MongoDB Service"
           type: "service"
-          required: "true"
+          required: true
         - variable: graylog_es
           description: "ElasticSearch Service Graylog Cluster"
           label: "ElasticSearch Service"
           type: "service"
-          required: "true"
+          required: true
         - variable: graylog_password
           description: "Password in sha2"
           label: "SHA2 Password"
           type: "string"
-          required: "true"
+          required: true
         - variable: graylog_secret
           description: "Password secret"
           label: "Password secret"
           type: "string"
-          required: "true"
+          required: true
