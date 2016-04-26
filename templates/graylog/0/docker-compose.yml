@@ -26,4 +26,4 @@ graylog-main:
         - graylog-datavolume
     external_links:
         - ${graylog_es}:elasticsearch
-        - ${graylog_mongo}:mongo
+        - ${graylog_mongodb}:mongo
