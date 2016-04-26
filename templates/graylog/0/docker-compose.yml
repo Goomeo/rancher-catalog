@@ -1,11 +1,11 @@
 graylog-main:
     restart: always
     environment:
-        GRAYLOG_USERNAME: "${graylog_username}"
-        #GRAYLOG_PASSWORD: "${graylog_password}"
-        #GRAYLOG_RETENTION: "${graylog_retention}"
-        GRAYLOG_NODE_ID: "${graylog_node_id}"
-        #GRAYLOG_MASTER: "${graylog_master}"
+        GRAYLOG_USERNAME: "admin"
+        GRAYLOG_PASSWORD: ""
+        GRAYLOG_RETENTION: ""
+        GRAYLOG_NODE_ID: "graylog"
+        GRAYLOG_MASTER: ""
     image: "graylog2/server:2.0.0-rc.1-1"
     labels:
         io.rancher.container.hostname_override: container_name
@@ -15,15 +15,3 @@ graylog-main:
     ports:
         - "9000:9000"
         - "12900:12900"
-    volumes_from:
-        - graylog-config
-graylog-config:
-  restart: always
-  net: none
-  tty: true
-  labels:
-    io.rancher.container.hostname_override: container_name
-    io.rancher.container.start_once: true
-  image: goomeo/graylog-conf:v0.1.0
-  stdin_open: true
-  entrypoint: /bin/true

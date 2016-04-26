@@ -25,7 +25,6 @@
           type: "string"
           default: "graylog"
           required: true
-          default: ""
         - variable: graylog_retention
           description: "Configure how long or how many logs should be stored"
           label: "Retention"
