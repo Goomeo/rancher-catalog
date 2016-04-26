@@ -1,17 +1,18 @@
 graylog-main:
     restart: always
     environment:
-        GRAYLOG_USERNAME: "admin"
-        GRAYLOG_PASSWORD: ""
-        GRAYLOG_RETENTION: ""
-        GRAYLOG_NODE_ID: "graylog"
-        GRAYLOG_MASTER: ""
-    image: "graylog2/server:2.0.0-rc.1-1"
+        GRAYLOG_USERNAME: "${graylog_username}"
+        GRAYLOG_PASSWORD: "${graylog_password}"
+        GRAYLOG_RETENTION: "${graylog_retention}"
+        GRAYLOG_NODE_ID: "${graylog_node_id}"
+        GRAYLOG_SERVER_SECRET: "${graylog_secret}"
+    image: "graylog2/allinone"
     labels:
         io.rancher.container.hostname_override: container_name
-    external_links:
-        - ${mongo_service}:mongo
-        - ${es_service}:elasticsearch
     ports:
         - "9000:9000"
-        - "12900:12900"
+        - "12201:12201"
+        - "12201:12201/udp"
+    volumes:
+        - /graylog/data:/var/opt/graylog/data
+        - /graylog/logs:/var/log/graylog
