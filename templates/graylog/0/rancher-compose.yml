@@ -3,11 +3,6 @@
     version: "v1.3.4"
     description: "Open source log management that actually works."
     questions:
-        - variable: graylog_mongodb
-          description: "MongoDB Service"
-          label: "MongoDB Service"
-          type: "service"
-          required: true
         - variable: graylog_es
           description: "ElasticSearch Service Graylog Cluster"
           label: "ElasticSearch Service"

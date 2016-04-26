@@ -9,12 +9,27 @@ graylog-datavolume:
         - /graylog/plugins
     entrypoint: /bin/true
     image: busybox
+mongodb-datavolume:
+    net: none
+    labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.container.start_once: true
+    volumes:
+        - /data/db
+    entrypoint: /bin/true
+    image: busybox
+mongodb-main:
+    image: "mongo:3"
+    volumes_from:
+        - mongodb-datavolume
+    labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.sidekicks: mongodb-datavolume
 graylog-main:
     restart: always
     environment:
         GRAYLOG_PASSWORD_SECRET: "${graylog_secret}"
         GRAYLOG_ROOT_PASSWORD_SHA2: "${graylog_password}"
-        GRAYLOG_REST_TRANSPORT_URI: "http://0.0.0.0:12900"
     image: "graylog2/server:2.0.0-rc.1-1"
     labels:
         io.rancher.container.hostname_override: container_name
@@ -26,4 +41,4 @@ graylog-main:
         - graylog-datavolume
     external_links:
         - ${graylog_es}:elasticsearch
-        - ${graylog_mongodb}:mongo
+        - mongodb-main:mongo
