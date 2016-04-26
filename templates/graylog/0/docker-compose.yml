@@ -18,6 +18,15 @@ mongodb-datavolume:
         - /data/db
     entrypoint: /bin/true
     image: busybox
+elasticsearch-datavolume:
+    net: none
+    labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.container.start_once: true
+    volumes:
+        - /usr/share/elasticsearch/data
+    entrypoint: /bin/true
+    image: busybox
 mongodb-main:
     image: "mongo:3"
     volumes_from:
@@ -25,11 +34,20 @@ mongodb-main:
     labels:
         io.rancher.container.hostname_override: container_name
         io.rancher.sidekicks: mongodb-datavolume
+elasticsearch-main:
+    image: "elasticsearch:2"
+    command: "elasticsearch -Des.cluster.name='graylog'"
+    volumes_from:
+        - elasticsearch-datavolume
+    labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.sidekicks: elasticsearch-datavolume
 graylog-main:
     restart: always
     environment:
-        GRAYLOG_PASSWORD_SECRET: "${graylog_secret}"
-        GRAYLOG_ROOT_PASSWORD_SHA2: "${graylog_password}"
+        GRAYLOG_PASSWORD_SECRET: ${graylog_secret}
+        GRAYLOG_ROOT_PASSWORD_SHA2: ${graylog_password}
+        GRAYLOG_REST_TRANSPORT_URI: http://${CATTLE_AGENT_IP}:12900
     image: "graylog2/server:2.0.0-rc.1-1"
     labels:
         io.rancher.container.hostname_override: container_name
@@ -41,5 +59,4 @@ graylog-main:
         - graylog-datavolume
     links:
         - mongodb-main:mongo
-    external_links:
-        - ${graylog_es}:elasticsearch
+        - elasticsearch-main:elasticsearch
