@@ -1,3 +1,14 @@
+graylog-datavolume:
+    net: none
+    labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.container.start_once: true
+    volumes:
+        - /graylog/data
+        - /graylog/logs
+        - /graylog/plugins
+    entrypoint: /bin/true
+    image: busybox
 graylog-main:
     restart: always
     environment:
@@ -16,14 +27,3 @@ graylog-main:
     external_links:
         - ${graylog_es}:elasticsearch
         - ${graylog_mongo}:mongo
-graylog-datavolume:
-    net: none
-    labels:
-        io.rancher.container.hostname_override: container_name
-        io.rancher.container.start_once: true
-    volumes:
-        - /graylog/data
-        - /graylog/logs
-        - /graylog/plugins
-    entrypoint: /bin/true
-    image: busybox
