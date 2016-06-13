@@ -13,3 +13,13 @@
           label: "Password secret"
           type: "string"
           required: true
+        - variable: graylog_fqdn
+          description: "IP ou Nom de domaine du serveur"
+          label: "FQDN"
+          type: "string"
+          required: true
+        - variable: es_service
+          description: "Service ElasticSearch lié"
+          label: "Service ElasticSearch"
+          type: "service"
+          required: true
