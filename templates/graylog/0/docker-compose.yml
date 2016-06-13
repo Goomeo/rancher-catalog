@@ -40,7 +40,7 @@ graylog:
     links:
         - mongodb:mongo
     external_links:
-          - ${graylog_es}:elasticsearch
+          - ${es_service}:elasticsearch
 lb:
     restart: always
     image: rancher/load-balancer-service
