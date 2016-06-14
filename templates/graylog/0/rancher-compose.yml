@@ -1,6 +1,6 @@
 .catalog:
     name: "Graylog"
-    version: "v1.3.4"
+    version: "v2.0.2-2"
     description: "Open source log management that actually works."
     questions:
         - variable: graylog_password
