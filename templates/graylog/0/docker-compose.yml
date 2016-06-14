@@ -52,19 +52,3 @@ lb:
         - graylog:graylog
     labels:
         io.rancher.scheduler.global: 'true'
-logspout:
-    restart: always
-    image: "micahhausler/logspout:gelf"
-    hostname: logspout
-    command: "gelf://graylog:12201"
-    environment:
-        LOGSPOUT: ignore
-    labels:
-        io.rancher.scheduler.global: 'true'
-        io.rancher.container.hostname_override: container_name
-    tty: true
-    volumes:
-        - "/var/run/docker.sock:/var/run/docker.sock"
-    links:
-        - "graylog:graylog"
-    stdin_open: true
