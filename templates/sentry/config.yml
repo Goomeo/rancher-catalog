@@ -1,0 +1,4 @@
+name: Sentry with plugins
+version: 8.5.1
+description: Sentry is a realtime event logging and aggregation platform
+category: Error Tracking
