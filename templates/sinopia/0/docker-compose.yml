@@ -1,0 +1,18 @@
+sinopia-datavolume:
+    net: none
+    volumes:
+        - /sinopia/storage
+    entrypoint: /bin/true
+    image: busybox
+sinopia:
+    image: goomeo/sinopia:gitlab
+    log_driver: ''
+    tty: true
+    log_opt: {}
+    stdin_open: true
+    ports:
+        - ${sinopia_public_port}:4873/tcp
+    volumes_from:
+        - sinopia-datavolume
+    environment:
+        GITLAB_URL: ${sinopia_gitlab_url}
