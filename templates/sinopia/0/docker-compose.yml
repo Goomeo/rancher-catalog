@@ -1,5 +1,8 @@
 sinopia-datavolume:
     net: none
+    labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.container.start_once: true
     volumes:
         - /sinopia/storage
     entrypoint: /bin/true
@@ -16,3 +19,6 @@ sinopia:
         - sinopia-datavolume
     environment:
         GITLAB_URL: ${sinopia_gitlab_url}
+    labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.sidekicks: graylog-datavolume

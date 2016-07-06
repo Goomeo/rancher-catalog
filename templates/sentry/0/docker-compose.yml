@@ -7,6 +7,7 @@ sentry-postgres:
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
   tty: true
   log_opt: {}
   image: postgres:9.5.3
@@ -28,6 +29,7 @@ sentry-cron:
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
   tty: true
   command:
   - run
@@ -43,6 +45,7 @@ sentry-redis:
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
   tty: true
   log_opt: {}
   image: redis:3.2.0-alpine
@@ -66,6 +69,7 @@ sentry:
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
   tty: true
   command:
   - /bin/bash
@@ -94,6 +98,7 @@ sentry-worker:
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
   tty: true
   command:
   - run
