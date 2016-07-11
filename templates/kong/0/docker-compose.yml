@@ -34,7 +34,7 @@ kong:
   - 8443:8443/tcp
   environment:
     CLUSTER_LISTEN: rancher
-    DATABASE: cassandra
+    DATABASE: postgres
     POSTGRES_HOST: postgres
     POSTGRES_PORT: 5432
     POSTGRES_USER: kong
