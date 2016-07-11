@@ -25,8 +25,8 @@ kong:
   - 8443:8443/tcp
   environment:
     CLUSTER_LISTEN: rancher
-    DATABASE: cassandra:9046
-    CASSANDRA_CONTACT_POINTS: cassandra
+    DATABASE: cassandra
+    CASSANDRA_CONTACT_POINTS: cassandra:9046
     CASSANDRA_KEYSPACE: kong
     CASSANDRA_USER: cassandra
     CASSANDRA_PASSWORD: cassandra
