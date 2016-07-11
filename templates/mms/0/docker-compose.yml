@@ -1,5 +1,5 @@
 monitoring-agent:
-    from: goomeo/mms-monitoring
+    image: goomeo/mms-monitoring
     environment:
         MMS_SERVER: ${mms_server}
         MMS_API_KEY: ${mms_api_key}
@@ -10,7 +10,7 @@ monitoring-agent:
     log_opt: {}
     stdin_open: true
 backup-agent:
-    from: goomeo/mms-backup
+    image: goomeo/mms-backup
     environment:
         MMS_SERVER: ${mms_server}
         MMS_API_KEY: ${mms_api_key}
