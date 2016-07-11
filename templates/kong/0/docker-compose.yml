@@ -28,6 +28,8 @@ kong:
     DATABASE: cassandra
     CASSANDRA_CONTACT_POINTS: cassandra
     CASSANDRA_KEYSPACE: kong
+    CASSANDRA_USER: cassandra
+    CASSANDRA_PASSWORD: cassandra
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
