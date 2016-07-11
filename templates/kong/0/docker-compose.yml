@@ -1,20 +1,29 @@
-cassandra-datavolume:
+postgres-datavolume:
   net: none
   labels:
       io.rancher.container.hostname_override: container_name
       io.rancher.container.start_once: true
   volumes:
-      - /var/lib/cassandra
+      - /data/postgres/data
   entrypoint: /bin/true
   image: busybox
-cassandra:
-  image: cassandra:3.7
-  labels:
-    io.rancher.container.hostname_override: container_name
-    io.rancher.sidekicks: cassandra-datavolume
-  tty: true
-  volumes_from:
-      - cassandra-datavolume
+postgres:
+   environment:
+     POSTGRES_USER: kong
+     POSTGRES_PASSWORD: kong
+     PGDATA: /data/postgres/data
+   log_driver: ''
+   labels:
+     io.rancher.scheduler.global: 'true'
+     io.rancher.container.pull_image: always
+     io.rancher.container.hostname_override: container_name
+     io.rancher.sidekicks: postgres-datavolume
+   tty: true
+   log_opt: {}
+   image: postgres:9.5.3
+   stdin_open: true
+   volumes_from:
+       - postgres-datavolume
 kong:
   image: littlebaydigital/kong:0.8.3
   ports:
@@ -26,17 +35,18 @@ kong:
   environment:
     CLUSTER_LISTEN: rancher
     DATABASE: cassandra
-    CASSANDRA_CONTACT_POINTS: "cassandra:9046"
-    CASSANDRA_KEYSPACE: kong
-    CASSANDRA_USER: cassandra
-    CASSANDRA_PASSWORD: cassandra
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: 5432
+    POSTGRES_USER: kong
+    POSTGRES_PASSWORD: kong
+    POSTGRES_DB: kong
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
     io.rancher.container.hostname_override: container_name
   tty: true
   links:
-    - cassandra:cassandra
+    - postgres:postgres
 kong-dashboard:
   image: pgbi/kong-dashboard
   ports:
