@@ -1,8 +1,8 @@
 monitoring-agent:
     from: goomeo/mms-monitoring
     environment:
-        MMS_SERVER: ${mms-server}
-        MMS_API_KEY: ${mms-api-key}
+        MMS_SERVER: ${mms_server}
+        MMS_API_KEY: ${mms_api_key}
     labels:
         io.rancher.container.hostname_override: container_name
         io.rancher.container.start_once: true
@@ -12,8 +12,8 @@ monitoring-agent:
 backup-agent:
     from: goomeo/mms-backup
     environment:
-        MMS_SERVER: ${mms-server}
-        MMS_API_KEY: ${mms-api-key}
+        MMS_SERVER: ${mms_server}
+        MMS_API_KEY: ${mms_api_key}
     labels:
         io.rancher.container.hostname_override: container_name
         io.rancher.container.start_once: true
