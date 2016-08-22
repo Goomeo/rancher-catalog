@@ -19,7 +19,7 @@
           type: "string"
           required: true
         - variable: es_service
-          description: "Service ElasticSearch lié"
+          description: "Service ElasticSearch"
           label: "Service ElasticSearch"
           type: "service"
           required: true
