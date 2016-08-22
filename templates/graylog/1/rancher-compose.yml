@@ -23,18 +23,3 @@
           label: "Service ElasticSearch"
           type: "service"
           required: true
-
-graylog:
-    health_check:
-    # Which port to perform the check against
-    port: 9000
-    # Interval is measured in milliseconds
-    interval: 2000
-    initializing_timeout: 60000
-    unhealthy_threshold: 3
-    # Strategy for what to do when unhealthy
-    # In this service, Rancher will recreate any unhealthy containers
-    strategy: recreate
-    healthy_threshold: 2
-    # Response timeout is measured in milliseconds
-    response_timeout: 2000
