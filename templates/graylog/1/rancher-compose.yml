@@ -1,0 +1,40 @@
+.catalog:
+    name: "Graylog"
+    version: "v2.1.0-beta.4-1"
+    description: "Open source log management that actually works."
+    questions:
+        - variable: graylog_password
+          description: "Password in sha2"
+          label: "SHA2 Password"
+          type: "string"
+          required: true
+        - variable: graylog_secret
+          description: "Password secret"
+          label: "Password secret"
+          type: "string"
+          required: true
+        - variable: graylog_fqdn
+          description: "IP ou Nom de domaine du serveur"
+          label: "FQDN"
+          type: "string"
+          required: true
+        - variable: es_service
+          description: "Service ElasticSearch lié"
+          label: "Service ElasticSearch"
+          type: "service"
+          required: true
+
+graylog:
+    health_check:
+    # Which port to perform the check against
+    port: 9000
+    # Interval is measured in milliseconds
+    interval: 2000
+    initializing_timeout: 60000
+    unhealthy_threshold: 3
+    # Strategy for what to do when unhealthy
+    # In this service, Rancher will recreate any unhealthy containers
+    strategy: recreate
+    healthy_threshold: 2
+    # Response timeout is measured in milliseconds
+    response_timeout: 2000
