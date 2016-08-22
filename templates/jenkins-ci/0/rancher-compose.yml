@@ -11,8 +11,16 @@
       List of plugins in the format <plugin_name>[:<version>]
       one entry per line.
     default: |
+      workflow-job
+      workflow-cps
+      workflow-step-api
+      workflow-scm-step
+      token-macro
       credentials
+      structs
       git
+      git:2.0.3
+      git:2.4.0
       git-client
       github
       github-api
@@ -24,6 +32,7 @@
       ssh-credentials
       ssh-slaves
       swarm
+      gatling
 jenkins-primary:
   metadata:
     plugins: |
