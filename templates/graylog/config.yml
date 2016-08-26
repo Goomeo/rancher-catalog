@@ -1,5 +1,5 @@
 name: Graylog
 description: |
     Open source log management that actually works.
-version: v2.1.0-beta.4-1
+version: v2.1.0-rc.1-1
 category: Log
