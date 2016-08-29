@@ -40,7 +40,9 @@ graylog:
     links:
         - mongodb:mongo
     external_links:
-          - ${es_service}:elasticsearch
+        - ${es_service}:elasticsearch
+    ports :
+        - 5514/udp:5514/udp
 lb:
     restart: always
     image: rancher/load-balancer-service
