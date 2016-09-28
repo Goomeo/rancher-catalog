@@ -14,8 +14,6 @@ postgres:
      PGDATA: /data/postgres/data
    log_driver: ''
    labels:
-     io.rancher.scheduler.global: 'true'
-     io.rancher.container.pull_image: always
      io.rancher.container.hostname_override: container_name
      io.rancher.sidekicks: postgres-datavolume
    tty: true
@@ -25,7 +23,7 @@ postgres:
    volumes_from:
        - postgres-datavolume
 kong:
-  image: littlebaydigital/kong:0.8.3
+  image: littlebaydigital/kong:0.8.3-1
   ports:
   - 7946/tcp
   - 7946/udp
@@ -41,8 +39,6 @@ kong:
     POSTGRES_PASSWORD: kong
     POSTGRES_DB: kong
   labels:
-    io.rancher.scheduler.global: 'true'
-    io.rancher.container.pull_image: always
     io.rancher.container.hostname_override: container_name
   tty: true
   links:
@@ -52,6 +48,5 @@ kong-dashboard:
   ports:
     - 8080
   labels:
-    io.rancher.scheduler.global: 'true'
-    io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
   tty: true
