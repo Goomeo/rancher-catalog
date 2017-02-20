@@ -7,7 +7,7 @@ services:
         ports:
             - ${sinopia_public_port}:4873/tcp
         volumes:
-            - sinopia-storage:/sinopia/storage
+            - sinopia-storage:/cinabre/storage
         environment:
             GITLAB_URL: ${sinopia_gitlab_url}
         labels:
