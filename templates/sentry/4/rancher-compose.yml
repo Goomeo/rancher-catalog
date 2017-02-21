@@ -13,7 +13,7 @@ services:
 
 .catalog:
   name: Sentry
-  version: "8.10.0-nfs"
+  version: "8.13.0"
   description: Sentry is a realtime event logging and aggregation platform
 
   questions:
