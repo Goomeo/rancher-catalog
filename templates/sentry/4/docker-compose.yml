@@ -35,7 +35,7 @@ services:
     command:
     - run
     - cron
-    image: goomeo/sentry:8.10.0
+    image: goomeo/sentry:8.13.0
     links:
     - sentry-postgres:postgres
     - sentry-redis:redis
@@ -74,7 +74,7 @@ services:
     - /bin/bash
     - -c
     - sentry upgrade --noinput && sentry createuser --email ${sentry_inital_user_email} --password ${sentry_inital_user_password} --superuser && /entrypoint.sh run web || /entrypoint.sh run web
-    image: goomeo/sentry:8.10.0
+    image: goomeo/sentry:8.13.0
     links:
     - sentry-postgres:postgres
     - sentry-redis:redis
@@ -101,7 +101,7 @@ services:
     command:
     - run
     - worker
-    image: goomeo/sentry:8.10.0
+    image: goomeo/sentry:8.13.0
     links:
     - sentry-postgres:postgres
     - sentry-redis:redis
