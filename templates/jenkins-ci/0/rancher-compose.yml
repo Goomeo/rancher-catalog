@@ -1,6 +1,6 @@
 .catalog:
   name: Jenkins
-  version: 2.7.2-alpine
+  version: 2.46.2
   description: |
     Jenkins CI management server.
   questions:
@@ -33,6 +33,13 @@
       ssh-slaves
       swarm
       gatling
+      blueocean
+      nodejs
+      gitlab-plugin
+      gitlab-hook
+      gitlab-oauth
+      gitlab-logo
+      mailer
 jenkins-primary:
   metadata:
     plugins: |
