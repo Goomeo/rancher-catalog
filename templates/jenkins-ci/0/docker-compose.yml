@@ -10,7 +10,7 @@ services:
       volumes_from:
         - jenkins-plugins
       volumes:
-        jenkins-storage:/var/jenkins_home
+        - jenkins-storage:/var/jenkins_home
       entrypoint: /usr/share/jenkins/rancher/jenkins.sh
     jenkins-plugins:
       image: rancher/jenkins-plugins:v0.1.1
