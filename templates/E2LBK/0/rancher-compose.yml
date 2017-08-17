@@ -1,32 +1,31 @@
-version: '2'
-catalog:
+.catalog:
   name: E2LBK
   version: v5.5.0
   description: Logging and monitoring your stack
   questions:
-    - variable: "VOLUME_DRIVER"
-        type: "string"
-        label: "Volume driver for data"
-        description: |
-          Specifiy docker volume driver to use
-        default: "rancher-nfs"
-        required: true
-    - variable: "METRICBEAT"
-        label: "Activate metricbeat"
-        default: true
-        required: true
-        type: enum
-        options:
-          - false
-          - true
-    - variable: "PACKETBEAT"
-        label: "Activate packetbeat"
-        default: false
-        required: true
-        type: enum
-        options:
-          - false
-          - true
+  - variable: "VOLUME_DRIVER"
+      type: "string"
+      label: "Volume driver for data"
+      description: |
+        Specifiy docker volume driver to use
+      default: "rancher-nfs"
+      required: true
+  - variable: "METRICBEAT"
+      label: "Activate metricbeat"
+      default: true
+      required: true
+      type: enum
+      options:
+        - false
+        - true
+  - variable: "PACKETBEAT"
+      label: "Activate packetbeat"
+      default: false
+      required: true
+      type: enum
+      options:
+        - false
+        - true
 services:
   logstash-config:
     metadata:
