@@ -11,7 +11,6 @@ services:
             io.rancher.container.start_once: true
             io.rancher.container.pull_image: always
         tty: true
-        log_opt: {}
         stdin_open: true
     backup-agent:
         image: goomeo/mms-backup:latest
@@ -24,5 +23,4 @@ services:
             io.rancher.container.start_once: true
             io.rancher.container.pull_image: always
         tty: true
-        log_opt: {}
         stdin_open: true
