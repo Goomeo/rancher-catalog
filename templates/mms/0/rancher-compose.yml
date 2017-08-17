@@ -15,3 +15,9 @@
         required: true
         label: "Api-Key"
         description: "Api-key used to connect to MMS server"
+      
+      - variable: "mms_group_id"
+        type: "string"
+        required: true
+        label: "Group ID"
+        description: "MMS Group ID. It's in Settings => Group Settings on Atlas"

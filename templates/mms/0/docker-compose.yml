@@ -1,22 +1,28 @@
-monitoring-agent:
-    image: goomeo/mms-monitoring
-    environment:
-        MMS_SERVER: ${mms_server}
-        MMS_API_KEY: ${mms_api_key}
-    labels:
-        io.rancher.container.hostname_override: container_name
-        io.rancher.container.start_once: true
-    tty: true
-    log_opt: {}
-    stdin_open: true
-backup-agent:
-    image: goomeo/mms-backup
-    environment:
-        MMS_SERVER: ${mms_server}
-        MMS_API_KEY: ${mms_api_key}
-    labels:
-        io.rancher.container.hostname_override: container_name
-        io.rancher.container.start_once: true
-    tty: true
-    log_opt: {}
-    stdin_open: true
+version: '2'
+services:
+    monitoring-agent:
+        image: goomeo/mms-monitoring:latest
+        environment:
+            MMS_SERVER: ${mms_server}
+            MMS_API_KEY: ${mms_api_key}
+            MMS_GROUP_ID: ${mms_group_id}
+        labels:
+            io.rancher.container.hostname_override: container_name
+            io.rancher.container.start_once: true
+            io.rancher.container.pull_image: always
+        tty: true
+        log_opt: {}
+        stdin_open: true
+    backup-agent:
+        image: goomeo/mms-backup:latest
+        environment:
+            MMS_SERVER: ${mms_server}
+            MMS_API_KEY: ${mms_api_key}
+            MMS_GROUP_ID: ${mms_group_id}
+        labels:
+            io.rancher.container.hostname_override: container_name
+            io.rancher.container.start_once: true
+            io.rancher.container.pull_image: always
+        tty: true
+        log_opt: {}
+        stdin_open: true
