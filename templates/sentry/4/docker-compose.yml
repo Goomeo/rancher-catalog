@@ -28,6 +28,7 @@ services:
       GITLAB_BASE_DOMAIN: ${gitlab_base_domain}
       GITLAB_API_VERSION: ${gitlab_api_version}
       GITLAB_HTTP_SCHEME: ${gitlab_http_scheme}
+      SENTRY_REDIS_HOST: redis
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.hostname_override: container_name
@@ -66,6 +67,7 @@ services:
       GITLAB_BASE_DOMAIN: ${gitlab_base_domain}
       GITLAB_API_VERSION: ${gitlab_api_version}
       GITLAB_HTTP_SCHEME: ${gitlab_http_scheme}
+      SENTRY_REDIS_HOST: redis
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.hostname_override: container_name
@@ -94,6 +96,7 @@ services:
       GITLAB_BASE_DOMAIN: ${gitlab_base_domain}
       GITLAB_API_VERSION: ${gitlab_api_version}
       GITLAB_HTTP_SCHEME: ${gitlab_http_scheme}
+      SENTRY_REDIS_HOST: redis
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.hostname_override: container_name
