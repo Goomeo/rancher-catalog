@@ -27,6 +27,16 @@ catalog:
       options:
         - false
         - true
+    - variable: curator_interval
+      label: "Duree d'intervale pour la suppression des anciennes donnees (en heures)"
+      default: 24
+      required: true
+      type: "number"
+    - variable: curator_days
+      label: "Duree de retention des donnees (en jours)"
+      default: 30
+      required: true
+      type: "number"
 services:
   logstash-config:
     metadata:

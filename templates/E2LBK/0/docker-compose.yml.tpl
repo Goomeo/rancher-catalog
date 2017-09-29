@@ -111,6 +111,20 @@ services:
     depends_on:
     - logstash
 
+  curator:
+    image: visity/elasticsearch-curator
+    links:
+    - elasticsearch
+    depends_on:
+    - elasticsearch
+    labels:
+      io.rancher.container.hostname_override: container_name
+    tty: true
+    stdin_open: true
+    environment:
+      INTERVAL_IN_HOURS: ${curator_interval}
+      OLDER_THAN_IN_DAYS: ${curator_days}
+
   {{- if eq .Values.METRICBEAT "true" }}
   metricbeat:
     image: docker.elastic.co/beats/metricbeat:5.5.0
