@@ -112,7 +112,7 @@ services:
     - logstash
 
   curator:
-    image: visity/elasticsearch-curator
+    image: throrin19/elasticsearch-curator:5.2.0
     links:
     - elasticsearch
     depends_on:
