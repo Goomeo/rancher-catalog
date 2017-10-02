@@ -2,7 +2,7 @@ version: '2'
 catalog:
   name: "Graylog"
   version: "v2.3.0-1"
-  description: "Open source log management that actually works. Pour le port 9000, veuillez passer par un nouveau LoadBalancer si vous voulez le rendre public. Attention : cette version n'est pas entièrement fonctionnelle"
+  description: "Open source log management that actually works. Pour le port 9000, veuillez passer par un nouveau LoadBalancer si vous voulez le rendre public. Attention : cette version n'est pas entierement fonctionnelle"
   questions:
     - variable: "VOLUME_DRIVER"
       type: "string"
