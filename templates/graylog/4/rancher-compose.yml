@@ -1,0 +1,63 @@
+version: '2'
+catalog:
+  name: "Graylog"
+  version: "v2.3.0-1"
+  description: "Open source log management that actually works. Pour le port 9000, veuillez passer par un nouveau LoadBalancer si vous voulez le rendre public. Attention : cette version n'est pas entièrement fonctionnelle"
+  questions:
+    - variable: "VOLUME_DRIVER"
+      type: "string"
+      label: "Volume driver for data"
+      description: |
+        Specifiy docker volume driver to use
+      default: "rancher-nfs"
+      required: true
+    - variable: "METRICBEAT"
+      label: "Activate metricbeat"
+      default: true
+      required: true
+      type: enum
+      options:
+        - false
+        - true
+    - variable: graylog_password
+      description: "Password in sha2"
+      label: "SHA2 Password"
+      type: "string"
+      required: true
+    - variable: graylog_secret
+      description: "Password secret"
+      label: "Password secret"
+      type: "string"
+      required: true
+    - variable: graylog_fqdn
+      description: "IP ou Nom de domaine du serveur"
+      label: "FQDN"
+      type: "string"
+      required: true
+    - variable: es_service
+      description: "Service ElasticSearch"
+      label: "Service ElasticSearch"
+      type: "service"
+      required: true
+services:
+  logstash-config:
+    metadata:
+      logstash: &id001
+        inputs: |+
+          udp {
+            port => 5000
+            codec => "json"
+          }
+
+        outputs: |+
+          elasticsearch {
+            hosts => ["elasticsearch:9200"]
+          }
+          stdout {
+            codec => rubydebug
+          }
+    scale: 1
+  logstash:
+    metadata:
+      logstash: *id001
+    scale: 1
