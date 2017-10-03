@@ -4,10 +4,8 @@ volumes:
     driver: ${VOLUME_DRIVER}
   graylog-mongodb:
     driver: rancher-nfs
-    external: true
   graylog-journal:
     driver: rancher-nfs
-    external: true
 
 services:
   elasticsearch-storage:
