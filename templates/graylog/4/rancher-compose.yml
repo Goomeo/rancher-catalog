@@ -50,11 +50,8 @@ services:
           }
 
         outputs: |+
-          elasticsearch {
-            hosts => ["elasticsearch:9200"]
-          }
-          stdout {
-            codec => rubydebug
+          gelf {
+            hosts => ["graylog:12201"]
           }
     scale: 1
   logstash:

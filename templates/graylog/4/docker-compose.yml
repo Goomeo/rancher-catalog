@@ -62,11 +62,11 @@ services:
     labels:
       io.rancher.container.hostname_override: container_name
   logstash:
-    image: docker.elastic.co/logstash/logstash:5.5.0
+    image: throrin19/logstash-gelf:5.5.0
     stdin_open: true
     tty: true
     links:
-    - elasticsearch
+    - graylog
     volumes_from:
     - logstash-config
     ports:
@@ -80,7 +80,7 @@ services:
       io.rancher.sidekicks: logstash-config
       io.rancher.container.hostname_override: container_name
     depends_on:
-    - elasticsearch
+    - graylog
   logspout:
     image: bekt/logspout-logstash:latest
     links:
