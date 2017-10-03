@@ -39,7 +39,8 @@ services:
 
         outputs: |+
           gelf {
-            hosts => ["graylog:12201"]
+            host => "graylog"
+            port => "12201"
           }
     scale: 1
   logstash:
