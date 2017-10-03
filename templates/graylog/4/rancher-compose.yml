@@ -11,14 +11,6 @@ catalog:
         Specifiy docker volume driver to use
       default: "rancher-nfs"
       required: true
-    - variable: "METRICBEAT"
-      label: "Activate metricbeat"
-      default: true
-      required: true
-      type: enum
-      options:
-        - false
-        - true
     - variable: graylog_password
       description: "Password in sha2"
       label: "SHA2 Password"
@@ -30,10 +22,11 @@ catalog:
       type: "string"
       required: true
     - variable: graylog_fqdn
-      description: "IP ou Nom de domaine du serveur"
+      description: "adresse web de graylog (protocole et port si different du 80/443)"
       label: "FQDN"
       type: "string"
       required: true
+      default: "http://graylog.example.com:9000"
     - variable: es_service
       description: "Service ElasticSearch"
       label: "Service ElasticSearch"
