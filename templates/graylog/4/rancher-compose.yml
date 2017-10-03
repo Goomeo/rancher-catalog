@@ -27,11 +27,6 @@ catalog:
       type: "string"
       required: true
       default: "http://graylog.example.com:9000"
-    - variable: es_service
-      description: "Service ElasticSearch"
-      label: "Service ElasticSearch"
-      type: "service"
-      required: true
 services:
   logstash-config:
     metadata:
