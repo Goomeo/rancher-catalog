@@ -120,7 +120,7 @@ services:
     labels:
       io.rancher.container.hostname_override: container_name
   graylog:
-    image: graylog/graylog:2.3.1-1
+    image: throrin19/graylog-plugins:2.3.1-1
     volumes:
       - graylog-journal:/usr/share/graylog/data/journal
     environment:
@@ -133,14 +133,3 @@ services:
     depends_on:
       - mongodb
       - elasticsearch
-    ports:
-      # Graylog web interface and REST API
-      - 9000:9000
-      # Syslog TCP
-      - 514:514
-      # Syslog UDP
-      - 514:514/udp
-      # GELF TCP
-      - 12201:12201
-      # GELF UDP
-      - 12201:12201/udp
