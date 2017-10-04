@@ -120,7 +120,7 @@ services:
     labels:
       io.rancher.container.hostname_override: container_name
   graylog:
-    image: graylog/graylog:2.3.1-1
+    image: throrin19/graylog-plugins:2.3.1-1
     volumes:
       - graylog-journal:/usr/share/graylog/data/journal
     environment:
