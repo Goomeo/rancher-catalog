@@ -97,7 +97,7 @@ services:
     depends_on:
     - logstash
   metricbeat:
-    image: docker.elastic.co/beats/metricbeat:5.5.0
+    image: throrin19/metricbeat:5.5.0
     stdin_open: true
     network_mode: host
     volumes:
@@ -106,13 +106,15 @@ services:
     - /:/hostfs:ro
     tty: true
     links:
-    - elasticsearch
+    - graylog
     labels:
       io.rancher.container.dns: 'true'
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
+    environment:
+      LOGSTASH_URL: "graylog:5044"  
     depends_on:
-    - elasticsearch
+    - graylog
   mongodb:
     image: mongo:3
     volumes:
