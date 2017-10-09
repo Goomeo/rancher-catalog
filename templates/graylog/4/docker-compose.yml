@@ -112,7 +112,7 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
     environment:
-      LOGSTASH_URL: "graylog:5044"  
+      LOGSTASH_URL: "graylog:5044"
     depends_on:
     - graylog
   mongodb:
@@ -129,6 +129,16 @@ services:
       GRAYLOG_PASSWORD_SECRET: ${graylog_secret}
       GRAYLOG_ROOT_PASSWORD_SHA2: ${graylog_password}
       GRAYLOG_WEB_ENDPOINT_URI: ${graylog_fqdn}/api
+      GRAYLOG_TRANSPORT_EMAIL_ENABLED: "true"
+      GRAYLOG_TRANSPORT_EMAIL_HOSTNAME: ${graylog_smtp_hostname}
+      GRAYLOG_TRANSPORT_EMAIL_PORT: ${graylog_smtp_port}
+      GRAYLOG_TRANSPORT_EMAIL_USE_AUTH: "true"
+      GRAYLOG_TRANSPORT_EMAIL_USE_TLS: ${graylog_smtp_tls}
+      GRAYLOG_TRANSPORT_EMAIL_USE_SSL: ${graylog_smtp_ssl}
+      GRAYLOG_TRANSPORT_EMAIL_AUTH_USERNAME: ${graylog_smtp_user}
+      GRAYLOG_TRANSPORT_EMAIL_AUTH_PASSWORD: ${graylog_smtp_password}
+      GRAYLOG_TRANSPORT_EMAIL_SUBJECT_PREFIX: ${graylog_smtp_prefix}
+      GRAYLOG_TRANSPORT_EMAIL_FROM_EMAIL: ${graylog_smtp_from}
     links:
       - mongodb:mongo
       - elasticsearch

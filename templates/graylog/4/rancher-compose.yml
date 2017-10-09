@@ -27,6 +27,48 @@ catalog:
       type: "string"
       required: true
       default: "http://graylog.example.com:9000"
+    - variable: graylog_smtp_hostname
+      label: "SMTP Hostname"
+      description: "SMTP Server hostname used to send mails"
+      type: "String"
+      required: true
+    - variable: graylog_smtp_port
+      label : "SMTP Port"
+      description: "SMTP Server port for the connection"
+      type: "int"
+      required: true
+      default: 25
+    - variable: graylog_smtp_tls
+      label: "Use TLS"
+      description: "Use TLS for SMTP connection ?"
+      type: "boolean"
+      default: false
+    - variable: graylog_smtp_ssl
+      label: "Use SSL"
+      description: "Use SSL for SMTP connection ?"
+      type: "boolean"
+      default: false
+    - variable: graylog_smtp_user
+      label: "SMTP Username"
+      description: "Username for SMTP connection"
+      type: "string"
+      required: true
+    - variable: graylog_smtp_password
+      label: "SMTP password"
+      description: "password for SMTP connection"
+      type: "password"
+      required: true
+    - variable: graylog_smtp_prefix
+      label: "Email prefix"
+      description: "Prefix you want at the beginning of the email subject"
+      type: "string"
+      default: "[graylog]"
+    - variable: graylog_smtp_from
+      label: "FROM Email"
+      description: "Email showed as sender address"
+      type: "string"
+      required: true
+      default: 'graylog@example.com'
 services:
   logstash-config:
     metadata:
