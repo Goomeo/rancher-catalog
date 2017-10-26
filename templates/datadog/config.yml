@@ -1,0 +1,6 @@
+name: Datadog
+description: |
+  Real-time performance tracking and visualization of your container-based application deployment
+version: 12.4.5181
+category: Monitoring
+license: The MIT License

@@ -1,0 +1,17 @@
+version: '2'
+services:
+    datadog-agent:
+        image: datadog/docker-dd-agent:12.4.5181-alpine
+        restart: always
+        stdin_open: true
+        tty: true
+        volumes:
+        - '/var/run/docker.sock:/var/run/docker.sock:ro'
+        - '/proc/:/host/proc/:ro'
+        - '/sys/fs/cgroup/:/host/sys/fs/cgroup:ro'
+        environment:
+          SD_BACKEND: "docker"
+          API_KEY: ${apikey}
+        labels:
+          io.rancher.scheduler.global: 'true'
+          io.rancher.container.hostname_override: container_name
