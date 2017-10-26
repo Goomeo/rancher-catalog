@@ -1,4 +1,4 @@
-name: Datadog
+name: Datadog Agent
 description: |
   Real-time performance tracking and visualization of your container-based application deployment
 version: 12.4.5181

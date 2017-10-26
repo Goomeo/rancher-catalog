@@ -1,0 +1,11 @@
+.catalog:
+    name: "Datadog Agent"
+    version: "v12.4.5181"
+    description: |
+      Real-time performance tracking and visualization of your container-based application deployment
+    questions:
+        - variable: apikey
+          description: "API Key"
+          label: "API KEY"
+          type: "string"
+          required: true
