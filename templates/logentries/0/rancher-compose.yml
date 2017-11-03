@@ -1,0 +1,11 @@
+.catalog:
+    name: "LogEntries agent"
+    version: "v0.2.1"
+    description: |
+      Real-time performance tracking and visualization of your container-based application deployment
+    questions:
+        - variable: token
+          description: "Token"
+          label: "Token"
+          type: "string"
+          required: true
