@@ -1,0 +1,16 @@
+.catalog:
+    name: "Azure Analytics agent"
+    version: "v1.4.1-123"
+    description: |
+      Real-time performance tracking and visualization of your container-based application deployment
+    questions:
+        - variable: azure_wsid
+          description: "Workspace ID"
+          label: "WSID"
+          type: "string"
+          required: true
+        - variable: azure_key
+          description: "Key"
+          label: "Key"
+          type: "string"
+          required: true

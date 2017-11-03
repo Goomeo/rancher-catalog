@@ -1,0 +1,6 @@
+name: "Azure Analytics agent"
+description: |
+  Real-time performance tracking and visualization of your container-based application deployment
+version: "v1.4.1-123"
+category: Monitoring
+license: The MIT License

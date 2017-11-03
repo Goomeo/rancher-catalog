@@ -1,0 +1,17 @@
+version: '2'
+services:
+    oms-agent:
+        image: microsoft/oms:1.4.1-123
+        restart: always
+        stdin_open: true
+        tty: true
+        volumes:
+        - '/var/run/docker.sock:/var/run/docker.sock'
+        - '/etc/hostname:/etc/hostname:ro'
+        labels:
+          io.rancher.scheduler.global: 'true'
+        ports:
+        - 127.0.0.1:25225:25225
+        environment:
+          WSID: ${azure_wsid}
+          KEY: ${azure_key}
