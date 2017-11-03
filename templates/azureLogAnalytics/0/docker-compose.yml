@@ -5,13 +5,18 @@ services:
         restart: always
         stdin_open: true
         tty: true
+        privileged: true
         volumes:
         - '/var/run/docker.sock:/var/run/docker.sock'
         - '/etc/hostname:/etc/hostname:ro'
         labels:
           io.rancher.scheduler.global: 'true'
+          io.rancher.container.pull_image: always
+          io.rancher.scheduler.affinity:host_label: deployoms=true
+          io.rancher.container.hostname_override: container_name
         ports:
-        - 127.0.0.1:25225:25225
+        - 127.0.0.1:25224:25224/udp
+        - 127.0.0.1:25225:25225/tcp
         environment:
           WSID: ${azure_wsid}
           KEY: ${azure_key}
