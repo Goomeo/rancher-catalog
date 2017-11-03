@@ -11,8 +11,6 @@ services:
         - '/etc/hostname:/etc/hostname:ro'
         labels:
           io.rancher.scheduler.global: 'true'
-          io.rancher.container.pull_image: always
-          io.rancher.scheduler.affinity:host_label: deployoms=true
           io.rancher.container.hostname_override: container_name
         ports:
         - 127.0.0.1:25224:25224/udp
