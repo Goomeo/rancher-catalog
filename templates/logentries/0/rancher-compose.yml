@@ -4,8 +4,22 @@
     description: |
       Real-time performance tracking and visualization of your container-based application deployment
     questions:
-        - variable: token
-          description: "Token"
-          label: "Token"
-          type: "string"
-          required: true
+    - variable: logentries_command
+      label: Command
+      type: "string"
+      required: true
+      default: "-t <TOKEN> -j"
+      description: |
+        The command used to configure the logentries container.
+    - variable: logspout_address
+      label: Syslog Address
+      type: "string"
+      reqired: true
+      default: "syslog://data.logentries.com:55555"
+      description: |
+        Replacing the 55555 with the port assigned to you when setting up a TCP/UDP Input log.
+services:
+  logentries-agent:
+    start_on_create: true
+  logspout:
+    start_on_create: true
