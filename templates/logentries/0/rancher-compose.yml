@@ -18,8 +18,3 @@
       default: "syslog://data.logentries.com:55555"
       description: |
         Replacing the 55555 with the port assigned to you when setting up a TCP/UDP Input log.
-services:
-  logentries-agent:
-    start_on_create: true
-  logspout:
-    start_on_create: true
