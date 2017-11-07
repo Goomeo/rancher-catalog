@@ -14,7 +14,7 @@ services:
           io.rancher.container.hostname_override: container_name
         command: ${logentries_command}
     logspout:
-        image: gliderlabs/logspout:3.2.3
+        image: gliderlabs/logspout:v3.2.3
         restart: always
         stdin_open: true
         tty: true
