@@ -14,7 +14,7 @@
     - variable: logspout_address
       label: Syslog Address
       type: "string"
-      reqired: true
+      required: true
       default: "syslog://data.logentries.com:55555"
       description: |
         Replacing the 55555 with the port assigned to you when setting up a TCP/UDP Input log.
