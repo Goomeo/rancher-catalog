@@ -30,7 +30,7 @@ services:
     links:
       - postgres:postgres
   kong-dashboard:
-    image: pgbi/kong-dashboard
+    image: pgbi/kong-dashboard:3.0.0
     ports:
       - 8080
     labels:
